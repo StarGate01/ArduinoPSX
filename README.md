@@ -22,3 +22,7 @@ if(PSXerror == PSXERROR_SUCCESS)
     boolean test2 = (PSXdata.buttons & PSXBTN_LEFT);
 }
 ```
+
+#### Thanks to:
+- http://playground.arduino.cc/Main/PSXLibrary
+- http://store.curiousinventor.com/guides/PS2
