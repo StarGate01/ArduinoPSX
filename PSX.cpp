@@ -15,40 +15,40 @@ PSX::PSX()
 void PSX::sendCommand(byte command, byte &response)
 {
     response = 0;
-	for (int i=0; i<8; i++)
-	{
+    for (int i=0; i<8; i++)
+    {
         digitalWrite(_cmndPin, (command & (1 << i))? HIGH:LOW);
-		digitalWrite(_clockPin, LOW);
-		delayMicroseconds(_delay);
-		if (digitalRead(_dataPin)) response |= 1 << (7 - i);
-		digitalWrite(_clockPin, HIGH);
-		delayMicroseconds(_delay);
-	}
+        digitalWrite(_clockPin, LOW);
+        delayMicroseconds(_delay);
+        if (digitalRead(_dataPin)) response |= 1 << (7 - i);
+        digitalWrite(_clockPin, HIGH);
+        delayMicroseconds(_delay);
+    }
 }
 
 
 void PSX::setupPins(byte dataPin, byte cmndPin, byte attPin, byte clockPin, byte delay)
 {
-	_dataPin = dataPin;
+    _dataPin = dataPin;
     _cmndPin = cmndPin;
     _attPin = attPin;
     _clockPin = clockPin;
     _delay = delay;
     pinMode(dataPin, INPUT);
     digitalWrite(dataPin, HIGH);
-	pinMode(cmndPin, OUTPUT);
-	pinMode(attPin, OUTPUT);
-	digitalWrite(attPin, HIGH);
-	pinMode(clockPin, OUTPUT);
-	digitalWrite(clockPin, HIGH);
+    pinMode(cmndPin, OUTPUT);
+    pinMode(attPin, OUTPUT);
+    digitalWrite(attPin, HIGH);
+    pinMode(clockPin, OUTPUT);
+    digitalWrite(clockPin, HIGH);
 }
 
 int PSX::read(PSXDATA &psxdata)
 {
-	digitalWrite(_attPin, LOW);
+    digitalWrite(_attPin, LOW);
     byte response;
-	sendCommand(PSXPROT_HANDSHAKE, response);
-	sendCommand(PSXPROT_GETDATA, response);
+    sendCommand(PSXPROT_HANDSHAKE, response);
+    sendCommand(PSXPROT_GETDATA, response);
     sendCommand(PSXPROT_IDLE, response);
     if(response == PSXPROT_STARTDATA)
     {
@@ -73,34 +73,34 @@ void PSX::config(byte mode)
 {
     byte response;
     digitalWrite(_attPin, LOW);
-	sendCommand(PSXPROT_HANDSHAKE, response);
-	sendCommand(PSXPROT_CONFIG, response);
-	sendCommand(PSXPROT_IDLE, response);
-	sendCommand(PSXPROT_ENTERCONFIG, response);
-	sendCommand(PSXPROT_ZERO, response);	
-	digitalWrite(_attPin, HIGH);
+    sendCommand(PSXPROT_HANDSHAKE, response);
+    sendCommand(PSXPROT_CONFIG, response);
+    sendCommand(PSXPROT_IDLE, response);
+    sendCommand(PSXPROT_ENTERCONFIG, response);
+    sendCommand(PSXPROT_ZERO, response);    
+    digitalWrite(_attPin, HIGH);
     delayMicroseconds(_delay);
     digitalWrite(_attPin, LOW); 
-	sendCommand(PSXPROT_HANDSHAKE, response);
-	sendCommand(PSXPROT_CONFIGMODE, response);
-	sendCommand(PSXPROT_IDLE, response);
-	sendCommand(mode, response);
-	sendCommand(PSXPROT_MODELOCK, response);
-	sendCommand(PSXPROT_ZERO, response);
-	sendCommand(PSXPROT_ZERO, response);
-	sendCommand(PSXPROT_ZERO, response);
-	sendCommand(PSXPROT_ZERO, response);	
-	digitalWrite(_attPin, HIGH);	
+    sendCommand(PSXPROT_HANDSHAKE, response);
+    sendCommand(PSXPROT_CONFIGMODE, response);
+    sendCommand(PSXPROT_IDLE, response);
+    sendCommand(mode, response);
+    sendCommand(PSXPROT_MODELOCK, response);
+    sendCommand(PSXPROT_ZERO, response);
+    sendCommand(PSXPROT_ZERO, response);
+    sendCommand(PSXPROT_ZERO, response);
+    sendCommand(PSXPROT_ZERO, response);    
+    digitalWrite(_attPin, HIGH);    
     delayMicroseconds(_delay);
     digitalWrite(_attPin, LOW);
-	sendCommand(PSXPROT_HANDSHAKE, response);
-	sendCommand(PSXPROT_CONFIG, response);
-	sendCommand(PSXPROT_IDLE, response);
-	sendCommand(PSXPROT_EXITCONFIG, response);
-	sendCommand(PSXPROT_EXITCFGCNT, response);	
-	sendCommand(PSXPROT_EXITCFGCNT, response);
-	sendCommand(PSXPROT_EXITCFGCNT, response);
-	sendCommand(PSXPROT_EXITCFGCNT, response);
-	sendCommand(PSXPROT_EXITCFGCNT, response);	
-	digitalWrite(_attPin, HIGH);
+    sendCommand(PSXPROT_HANDSHAKE, response);
+    sendCommand(PSXPROT_CONFIG, response);
+    sendCommand(PSXPROT_IDLE, response);
+    sendCommand(PSXPROT_EXITCONFIG, response);
+    sendCommand(PSXPROT_EXITCFGCNT, response);    
+    sendCommand(PSXPROT_EXITCFGCNT, response);
+    sendCommand(PSXPROT_EXITCFGCNT, response);
+    sendCommand(PSXPROT_EXITCFGCNT, response);
+    sendCommand(PSXPROT_EXITCFGCNT, response);    
+    digitalWrite(_attPin, HIGH);
 }
