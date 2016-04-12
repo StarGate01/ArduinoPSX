@@ -51,7 +51,6 @@ class PSX
     public:
         struct PSXDATA
         {
-            byte model;
             unsigned int buttons;
             byte JoyLeftX;
             byte JoyLeftY;
