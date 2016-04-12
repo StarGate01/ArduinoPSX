@@ -1,0 +1,12 @@
+{
+    "name": "ArduinoPSX",
+    "keywords": "playstation, psx, ps2",
+    "description": "Interface a Playstation 2 controller",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/StarGate01/ArduinoPSX.git"
+    },
+    "frameworks": "arduino",
+    "platforms": "atmelavr"
+}
