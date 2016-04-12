@@ -24,6 +24,6 @@ if(PSXerror == PSXERROR_SUCCESS)
 }
 ```
 
-#### Thanks to:
+#### Thanks to / Sources:
 - http://playground.arduino.cc/Main/PSXLibrary
 - http://store.curiousinventor.com/guides/PS2
