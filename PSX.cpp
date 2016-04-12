@@ -86,10 +86,16 @@ void PSX::config(byte mode)
     sendCommand(PSXPROT_IDLE, response);
     sendCommand(mode, response);
     sendCommand(PSXPROT_MODELOCK, response);
+    for(int i=0; i<4; i++) sendCommand(PSXPROT_ZERO, response);  
+    digitalWrite(_attPin, HIGH);    
+    delayMicroseconds(_delay);
+    digitalWrite(_attPin, LOW); 
+    sendCommand(PSXPROT_HANDSHAKE, response);
+    sendCommand(PSXPROT_CONFIGMOTOR, response);
+    sendCommand(PSXPROT_IDLE, response);
     sendCommand(PSXPROT_ZERO, response);
-    sendCommand(PSXPROT_ZERO, response);
-    sendCommand(PSXPROT_ZERO, response);
-    sendCommand(PSXPROT_ZERO, response);    
+    sendCommand(PSXPROT_MOTORMAP, response);
+    for(int i=0; i<4; i++) sendCommand(PSXPROT_NONZERO, response);   
     digitalWrite(_attPin, HIGH);    
     delayMicroseconds(_delay);
     digitalWrite(_attPin, LOW);
@@ -97,10 +103,6 @@ void PSX::config(byte mode)
     sendCommand(PSXPROT_CONFIG, response);
     sendCommand(PSXPROT_IDLE, response);
     sendCommand(PSXPROT_EXITCONFIG, response);
-    sendCommand(PSXPROT_EXITCFGCNT, response);    
-    sendCommand(PSXPROT_EXITCFGCNT, response);
-    sendCommand(PSXPROT_EXITCFGCNT, response);
-    sendCommand(PSXPROT_EXITCFGCNT, response);
-    sendCommand(PSXPROT_EXITCFGCNT, response);    
+    for(int i=0; i<5; i++) sendCommand(PSXPROT_EXITCFGCNT, response);        
     digitalWrite(_attPin, HIGH);
 }

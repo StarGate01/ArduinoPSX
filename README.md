@@ -5,6 +5,7 @@
 - Read digital button states
 - Read analog joystick values
 - Set and lock digital / analog mode
+- Turn off vibration motors to save energy
 
 #### Usage:
 ```c
