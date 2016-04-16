@@ -1,5 +1,5 @@
 {
-    "name": "ArduinoPSX",
+    "name": "PSX",
     "keywords": "playstation, psx, ps2",
     "description": "Interface a Playstation 2 controller",
     "repository":
