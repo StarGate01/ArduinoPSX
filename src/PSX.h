@@ -58,7 +58,7 @@
 // See PSX.cpp for implementation
 
 /**
- * @brief Provides routines to interface a playstation 2 (PSX) controller
+ * @brief Provides routines to interface a Playstation 2 (PSX) controller
  * 
  */
 class PSX
@@ -96,10 +96,10 @@ class PSX
         void setupPins(byte dataPin, byte cmdPin, byte attPin, byte clockPin, byte delay);
 
         /**
-         * @brief Read the sate of all joysticks and buttons from the controller
+         * @brief Read the state of all joysticks and buttons from the controller
          * 
          * @param psxdata The state read from the controller
-         * @return int Return error code, PSXERROR_SUCCESS or PSXERROR_NODATA
+         * @return int Error code, PSXERROR_SUCCESS or PSXERROR_NODATA
          */
         int read(PSXDATA &psxdata);
 
