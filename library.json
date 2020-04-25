@@ -1,7 +1,14 @@
 {
     "name": "ArduinoPSX",
+    "version": "1.0.1",
     "keywords": "playstation, psx, ps2",
-    "description": "Interface a Playstation 2 controller",
+    "description": "A Playstation 2 controller library for Arduino.",
+    "authors":
+    {
+        "name": "Christoph Honal",
+        "email": "christoph.honal@web.de",
+        "url": "https://chrz.de"
+    },
     "repository":
     {
         "type": "git",
