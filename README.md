@@ -33,8 +33,8 @@ Check the example code or source code documentation for all available attributes
 
 #### Available on
 - GitHub https://github.com/StarGate01/ArduinoPSX
-- Platform.io http://platformio.org/lib/show/278/ArduinoPSX
+- PlatformIO https://platformio.org/lib/show/278/ArduinoPSX
 
 #### Thanks to / Sources:
-- http://playground.arduino.cc/Main/PSXLibrary
-- http://store.curiousinventor.com/guides/PS2
+- https://playground.arduino.cc/Main/PSXLibrary
+- https://store.curiousinventor.com/guides/PS2
