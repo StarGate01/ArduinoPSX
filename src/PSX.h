@@ -20,6 +20,8 @@
 #define PSXBTN_RIGHT        0x2000
 #define PSXBTN_UP           0x1000
 #define PSXBTN_START        0x0800
+#define PSBTN_ACT_RIGHT     0x0400
+#define PSBTN_ACT_LEFT      0x0200
 #define PSXBTN_SELECT       0x0100
 #define PSXBTN_SQUARE       0x0080
 #define PSXBTN_CROSS        0x0040
