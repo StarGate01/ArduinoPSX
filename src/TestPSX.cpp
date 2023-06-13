@@ -6,28 +6,33 @@
     Date:       2020-04-25
 */
 
-#include <PSX.h>
+#include <PSX1.h>
+#include <SigmaIO.hpp>
 
-#define dataPin   10  // Brown wire
-#define cmdPin    11  // Orange wire
-#define attPin    12  // Yellow wire
-#define clockPin  13  // Blue wire
+#define dataPin   15  // Brown wire
+#define cmdPin    16  // Orange wire
+#define attPin    4  // Yellow wire
+#define clockPin  2  // Blue wire
 
 
 // Static instantiation of the library
-PSX psx;
+PSX1 psx;
 
 // Variables to hold the controller state and error code
-PSX::PSXDATA PSXdata;
+PSX1::PSXDATA PSXdata;
 int PSXerror;
 
 
 void setup() {
-  //Setup the PSX library
+  Serial.begin(115200);
+  Serial.println("-------------------------------------");
+
+  sigmaIO = new SigmaIO();
+  
+  // Setup the PSX library
   psx.setupPins(dataPin, cmdPin, attPin, clockPin, 10);
   psx.config(PSXMODE_ANALOG);
   // Setup serial communication
-  Serial.begin(9600);
 }
 
 void loop() {
@@ -95,4 +100,5 @@ void loop() {
   } else {
     Serial.print("No success reading data. Check connections and timing.");
   }
+  delay(500);
 }

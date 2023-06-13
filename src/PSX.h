@@ -112,6 +112,14 @@ class PSX
          */
         void config(byte mode);
         
+        /*
+        * A block of GPIO function can be overwritten to adopt joystick to some kind of expanders
+        */
+       
+        virtual void pinMode(byte pin, byte mode) { ::pinMode(pin, mode); };
+        virtual void digitalWrite(byte pin, byte value){ ::digitalWrite(pin, value); };
+        virtual byte digitalRead(byte pin){ return ::digitalRead(pin);};
+        
     private:
     
         /**
